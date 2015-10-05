@@ -37,11 +37,11 @@ object HelloWorld {
       urlString+="/"
       for (l <- methodParams) urlString += "/" + l
     }
-    if(apiParams.nonEmpty) {
-      urlString+="/"
+    //if(apiParams.nonEmpty) {
+      urlString+="/format,xml,"
       for((k,v)<-apiParams) urlString+=k+","+v+","
       urlString.stripSuffix(",")
-    }
+    //}
     val post=POST(new URL(urlString)).addHeaders(("Content-Type", "application/x-www-form-urlencoded"))
     var postString=""
     if(apiParams.nonEmpty) {
